@@ -13,12 +13,12 @@
         <button>Pesquisar</button>
     </form>
     <ul>
-        @foreach ($dados as $dado)
+        @foreach ($users as $user)
             <li>
-                {{ $dado->name }}-
-                {{ $dado->email }}
-                | <a href="{{ route('users.edit', ['id' => $dado->id]) }}">editar</a>
-                | <a href="{{ route('users.show', ['id' => $dado->id]) }}">detalhes</a>
+                {{ $user->name }}-
+                {{ $user->email }}
+                | <a href="{{ route('users.edit', ['id' => $user->id]) }}">editar</a>
+                | <a href="{{ route('users.show', ['id' => $user->id]) }}">detalhes</a>
 
             </li>
         @endforeach
