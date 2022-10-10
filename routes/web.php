@@ -1,7 +1,8 @@
 <?php
-use App\Http\Controllers\{
-    UserController
-};
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\CommentController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 //route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::prefix('users')->group(function () {
-    route::delete('/{id}',[UserController::class,'destroy'])->name('users.destroy');
+    route::get('/{id}/comments/create', [CommentController::class,'create'])->name('comments.create');
+    route::post('/{id}/comments', [CommentController::class,'store'])->name('comments.store');
+    route::get('/{id}/comments', [CommentController::class,'index'])->name('comments.index');
+    route::delete('/{id}', [UserController::class,'destroy'])->name('users.destroy');
     route::put('/{id}', [UserController::class, 'update'])->name('users.update');
     route::get('/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
     route::get('/', [UserController::class, 'index'])->name('users.index');

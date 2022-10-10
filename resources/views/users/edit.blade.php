@@ -4,13 +4,14 @@
 
 
 @section('content')
-    <h1>Editar Usuário {{ $user->name }}</h1>
+    <div>
+        <h1 class="my-3">Editar Usuário </h1>
+        @include('includes.validations-form')
 
-    @include('includes.validations-form')
-    <form action="{{ route('users.update', $user->id) }}" method="post">
-        @method('PUT')
 
-        @include('users._partials.form')
-    </form>
-
+        <form action="{{ route('users.update', $user->id) }}" method="post">
+            @method('PUT')
+            @include('users._partials.form')
+        </form>
+    </div>
 @endsection
